@@ -12,7 +12,7 @@ CPPFLAGS   = -DCONFIG_$(ARCH)
 CFLAGS	   = -O2 $(ARCH3264) -fpic -Wall -fshort-wchar -fno-strict-aliasing -fno-merge-constants -mno-red-zone -fno-stack-protector -g
 LDFLAGS	   = -nostdlib
 CRTOBJ		= crt0-efi-$(ARCH).o
-CRTPATHS	= /lib /lib64 /lib/efi /lib64/efi /usr/lib /usr/lib64 /usr/lib/efi /usr/lib64/efi
+CRTPATHS	= /lib /lib64 /lib/efi /lib64/efi /usr/lib /usr/lib64 /usr/lib/efi /usr/lib64/efi /usr/lib/gnuefi /usr/lib64/gnuefi
 CRTPATH		= $(shell for f in $(CRTPATHS); do if [ -e $$f/$(CRTOBJ) ]; then echo $$f; break; fi; done)
 CRTOBJS		= $(CRTPATH)/$(CRTOBJ)
 # there's a bug in the gnu tools ... the .reloc section has to be
