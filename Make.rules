@@ -19,7 +19,7 @@ CRTOBJS		= $(CRTPATH)/$(CRTOBJ)
 # aligned otherwise the file alignment gets screwed up
 LDSCRIPT	= $(TOPDIR)/elf_$(ARCH)_efi.lds
 LDFLAGS		+= -T $(LDSCRIPT) -shared -Bsymbolic $(CRTOBJS) -L $(CRTPATH)
-LOADLIBES	= -lefi -lgnuefi $(shell $(CC) $(ARCH3264) -print-libgcc-file-name)
+LOADLIBES	= -L /usr/lib64 -L /usr/lib -lefi -lgnuefi $(shell $(CC) $(ARCH3264) -print-libgcc-file-name)
 FORMAT		= efi-app-$(ARCH)
 OBJCOPY		= objcopy
 MYGUID		= 11111111-2222-3333-4444-123456789abc
